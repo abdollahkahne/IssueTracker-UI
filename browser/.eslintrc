@@ -1,0 +1,10 @@
+{
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "quotes":["warn","double"],
+        "import/extensions":"off",
+        "react/forbid-prop-types":"off"
+    }
+}
