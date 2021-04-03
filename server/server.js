@@ -34,11 +34,11 @@ app.use(cookieParser());
 const apiProxyTarget = process.env.API_PROXY_TARGET;
 if (apiProxyTarget) {
   // using proxy bypass cors setting in API Server
-  app.use("/_api", httpProxy({ target: apiProxyTarget }));
+  app.use("/_api", httpProxy({ target: apiProxyTarget, changeOrigin: true }));
 }
 const authProxyTarget = process.env.AUTH_PROXY_TARGET;
 if (authProxyTarget) {
-  app.use("/auth", httpProxy({ target: authProxyTarget }));
+  app.use("/auth", httpProxy({ target: authProxyTarget, changeOrigin: true }));
 }
 
 app.get("/env.js", (req, res) => {
