@@ -134,7 +134,7 @@ class SignInNavItem extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <Button block variant="primary" disabled={disabled} onClick={this.signIn}>
-              <img src="/images/btn_google_signin_light_normal_web.png" alt="Google Sign In" />
+              <img src="https://goo.gl/4yjp6B" alt="Google Sign In" />
             </Button>
           </Modal.Body>
           <Modal.Footer>
