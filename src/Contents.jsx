@@ -13,7 +13,9 @@ import routes from "./routes";
 export default function Contents() {
   return (
     <Switch>
-      <Redirect from="/" to="/issues" exact />
+      <Route path="/" exact>
+        <Redirect to="/issues" />
+      </Route>
       {routes.map((route) => <Route {...route} key={route.path} />)}
     </Switch>
   );
