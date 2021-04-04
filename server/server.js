@@ -50,10 +50,10 @@ app.get("/env.js", (req, res) => {
   res.send(`window.ENV=${JSON.stringify(windowEnv)}`);
 });
 
-app.get("/*", (req, res) => { render(req, res); });
+app.get("*", (req, res, next) => { render(req, res, next); });
 
 // Redirect for Home Page (Apparantly React Static Router Context have a bug);
-app.get("/", (req, res) => { res.redirect(301, "/issues"); });
+// app.get("/", (req, res) => { res.redirect(301, "/issues"); });
 
 // // Client Side Rendering
 // app.get("/*", (req, res) => {
