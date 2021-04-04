@@ -26,15 +26,19 @@ export default async function render(req, res) {
   // You can use `jwt=${req.cookies.jwt}` too
   const userData = await Page.fetchData(req.headers.cookie);
 
-  const context = {};
-  const contentElement = (
-    <StaticRouter location={req.url} context={context}>
+  const staticRouterContext = {};
+  // const contentElement = (
+  //   <StaticRouter location={req.url} context={staticRouterContext}>
+  //     <Page />
+  //   </StaticRouter>
+  // );
+  const body = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url} context={staticRouterContext}>
       <Page />
-    </StaticRouter>
+    </StaticRouter>,
   );
-  const body = ReactDOMServer.renderToString(contentElement);
-  if (req.url === "/") {
-    res.redirect(301, "/issues");
+  if (staticRouterContext.url) {
+    res.redirect(301, staticRouterContext.url);
   } else {
     res.send(template(body, initialData, userData));
   }
