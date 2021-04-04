@@ -2,8 +2,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import {
-  Switch, Route, Redirect,
+  Switch, Route,
 } from "react-router-dom";
+import { Redirect } from "react-router";
 // import IssueList from "./issuesList.jsx";
 // import IssuesReport from "./issuesReport.jsx";
 // import IssueEdit from "./issueEdit.jsx";
@@ -13,7 +14,7 @@ import routes from "./routes";
 export default function Contents() {
   return (
     <Switch>
-      <Redirect from="/" to="/issues" />
+      <Redirect exact from="/" to="/issues" />
       {routes.map((route) => <Route {...route} key={route.path} />)}
     </Switch>
   );
