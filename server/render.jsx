@@ -33,8 +33,8 @@ export default async function render(req, res) {
     </StaticRouter>
   );
   const body = ReactDOMServer.renderToString(contentElement);
-  if (context.url) {
-    res.redirect(301, context.url);
+  if (req.originalUrl === "/") {
+    res.redirect(301, "/issues");
   } else {
     res.send(template(body, initialData, userData));
   }
