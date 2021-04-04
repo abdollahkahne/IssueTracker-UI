@@ -26,9 +26,7 @@ export default async function render(req, res) {
   // You can use `jwt=${req.cookies.jwt}` too
   const userData = await Page.fetchData(req.headers.cookie);
 
-  const context = {
-    initialMsg: "This is just for test",
-  };
+  let context;
   const contentElement = (
     <StaticRouter context={context} location={req.url}>
       <Page />
