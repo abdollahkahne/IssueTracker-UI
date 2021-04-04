@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { matchPath } from "react-router-dom";
-import { StaticRouter } from "react-router/StaticRouter";
+import StaticRouter from "react-router/StaticRouter";
 import Page from "../src/page.jsx";
 import template from "./template";
 // import graphQLFetch from "../src/graphQLFetch";
@@ -11,7 +11,6 @@ import routes from "../src/routes";
 
 // This is an express middleware and so should be written as middleware
 export default async function render(req, res) {
-  console.log("url:", req);
   // console.log("JWT: ", req.headers.cookie);
   // const initialData = await graphQLFetch("query {about}");
   // store.initialData = initialData;
