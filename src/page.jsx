@@ -107,7 +107,7 @@ class Page extends React.Component {
   }
 }
 
-// const ToastedPage = withToast(Page);
-// ToastedPage.fetchData = Page.fetchData;
+const ToastedPage = withToast(Page);
+ToastedPage.fetchData = Page.fetchData;
 
-export default Page;
+export default ToastedPage;

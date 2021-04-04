@@ -26,6 +26,7 @@ export default async function render(req, res) {
   store.initialData = initialData;
   // You can use `jwt=${req.cookies.jwt}` too
   const userData = await Page.fetchData(req.headers.cookie);
+  store.userData = userData;
 
   const staticRouterContext = {};
   const contentElement = (
