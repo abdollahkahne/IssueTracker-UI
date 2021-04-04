@@ -13,8 +13,8 @@ import routes from "./routes";
 export default function Contents() {
   return (
     <Switch>
-      {routes.map((route) => <Route {...route} key={route.path} />)}
       <Redirect exact from="/" to="/issues" />
+      {routes.map((route) => <Route {...route} key={route.path} />)}
     </Switch>
   );
 }
