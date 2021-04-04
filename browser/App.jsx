@@ -2,7 +2,7 @@
 import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Page from "../src/page.jsx";
 import store from "../src/store";
 
@@ -13,7 +13,7 @@ import store from "../src/store";
 store.initialData = window.__INITIAL_DATA__;
 store.userData = window.__USER_DATA__;
 
-const element = <Router><Page /></Router>;
+const element = <BrowserRouter><Page /></BrowserRouter>;
 ReactDOM.hydrate(element, document.getElementById("content"));
 
 if (module.hot) {

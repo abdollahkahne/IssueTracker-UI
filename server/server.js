@@ -50,7 +50,7 @@ app.get("/env.js", (req, res) => {
   res.send(`window.ENV=${JSON.stringify(windowEnv)}`);
 });
 
-app.get("*", (req, res) => { render(req, res); });
+app.get("/*", (req, res) => { render(req, res); });
 
 // // Client Side Rendering
 // app.get("/*", (req, res) => {
