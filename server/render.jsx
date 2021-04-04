@@ -28,7 +28,7 @@ export default async function render(req, res) {
 
   const context = {};
   const contentElement = (
-    <StaticRouter context={context} location={req.url}>
+    <StaticRouter location={req.url} context={context}>
       <Page />
     </StaticRouter>
   );
