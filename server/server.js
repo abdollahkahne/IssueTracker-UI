@@ -4,7 +4,6 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import { createProxyMiddleware as httpProxy } from "http-proxy-middleware";
 import dotenv from "dotenv";
-// import path from "path";
 import SourceMapSupport from "source-map-support";
 import render from "./render.jsx";
 
