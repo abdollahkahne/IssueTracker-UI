@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import {
-  matchPath, Redirect, Switch,
+  matchPath,
 } from "react-router-dom";
 import StaticRouter from "react-router/StaticRouter";
 import Page from "../src/page.jsx";
@@ -33,10 +33,7 @@ export default async function render(req, res) {
   const staticRouterContext = {};
   const contentElement = (
     <StaticRouter location={req.url} context={staticRouterContext}>
-      <Switch>
-        <Redirect exact from="/" to="/issues" />
-        <Page />
-      </Switch>
+      <Page />
     </StaticRouter>
   );
   const body = ReactDOMServer.renderToString(contentElement);
