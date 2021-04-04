@@ -1,7 +1,8 @@
 /* eslint-disable import/extensions */
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { StaticRouter, matchPath } from "react-router-dom";
+import { matchPath } from "react-router-dom";
+import { StaticRouter } from "react-router/StaticRouter";
 import Page from "../src/page.jsx";
 import template from "./template";
 // import graphQLFetch from "../src/graphQLFetch";
