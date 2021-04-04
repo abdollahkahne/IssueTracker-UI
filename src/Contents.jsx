@@ -14,7 +14,7 @@ export default function Contents() {
   return (
     <Switch>
       {routes.map((route) => <Route {...route} key={route.path} />)}
-      <Redirect path="/" to="/issues" />
+      <Redirect from="/" to="/issues" />
     </Switch>
   );
 }
