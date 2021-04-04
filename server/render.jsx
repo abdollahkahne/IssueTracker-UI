@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { matchPath } from "react-router-dom";
+import { matchPath, Redirect } from "react-router-dom";
 import StaticRouter from "react-router/StaticRouter";
 import Page from "../src/page.jsx";
 import template from "./template";
@@ -31,6 +31,7 @@ export default async function render(req, res) {
   const staticRouterContext = {};
   const contentElement = (
     <StaticRouter location={req.url} context={staticRouterContext}>
+      <Redirect from="/test" to="/issues" />
       <Page />
     </StaticRouter>
   );
