@@ -26,14 +26,13 @@ export default async function render(req, res) {
   // You can use `jwt=${req.cookies.jwt}` too
   const userData = await Page.fetchData(req.headers.cookie);
 
-  let context;
+  const context = {};
   const contentElement = (
     <StaticRouter context={context} location={req.url}>
       <Page />
     </StaticRouter>
   );
   const body = ReactDOMServer.renderToString(contentElement);
-  console.log("I Loaded", context);
   if (context.url) {
     res.redirect(301, context.url);
   } else {
