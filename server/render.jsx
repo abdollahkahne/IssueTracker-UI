@@ -10,7 +10,7 @@ import routes from "../src/routes";
 
 // This is an express middleware and so should be written as middleware
 export default async function render(req, res) {
-  // console.log("url:", req.originalUrl);
+  console.log("url:", req);
   // console.log("JWT: ", req.headers.cookie);
   // const initialData = await graphQLFetch("query {about}");
   // store.initialData = initialData;
@@ -27,16 +27,13 @@ export default async function render(req, res) {
   const userData = await Page.fetchData(req.headers.cookie);
 
   const staticRouterContext = {};
-  // const contentElement = (
-  //   <StaticRouter location={req.url} context={staticRouterContext}>
-  //     <Page />
-  //   </StaticRouter>
-  // );
-  const body = ReactDOMServer.renderToString(
+  const contentElement = (
     <StaticRouter location={req.url} context={staticRouterContext}>
       <Page />
-    </StaticRouter>,
+    </StaticRouter>
   );
+  const body = ReactDOMServer.renderToString(contentElement);
+  console.log(staticRouterContext);
   if (staticRouterContext.url) {
     res.redirect(301, staticRouterContext.url);
   } else {

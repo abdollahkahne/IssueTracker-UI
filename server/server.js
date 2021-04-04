@@ -31,15 +31,15 @@ if (enableHMR && process.env.NODE_ENV !== "production") {
 app.use(express.static("public"));
 app.use(cookieParser());
 
-// const apiProxyTarget = process.env.API_PROXY_TARGET;
-// if (apiProxyTarget) {
-//   // using proxy bypass cors setting in API Server
-//   app.use("/_api", httpProxy({ target: apiProxyTarget, changeOrigin: true }));
-// }
-// const authProxyTarget = process.env.AUTH_PROXY_TARGET;
-// if (authProxyTarget) {
-//   app.use("/auth", httpProxy({ target: authProxyTarget, changeOrigin: true }));
-// }
+const apiProxyTarget = process.env.API_PROXY_TARGET;
+if (apiProxyTarget) {
+  // using proxy bypass cors setting in API Server
+  app.use("/_api", httpProxy({ target: apiProxyTarget, changeOrigin: true }));
+}
+const authProxyTarget = process.env.AUTH_PROXY_TARGET;
+if (authProxyTarget) {
+  app.use("/auth", httpProxy({ target: authProxyTarget, changeOrigin: true }));
+}
 
 app.get("/env.js", (req, res) => {
   const windowEnv = {
@@ -50,7 +50,7 @@ app.get("/env.js", (req, res) => {
   res.send(`window.ENV=${JSON.stringify(windowEnv)}`);
 });
 
-app.get("/*", (req, res) => { render(req, res); });
+app.get("*", (req, res) => { render(req, res); });
 
 // // Client Side Rendering
 // app.get("/*", (req, res) => {

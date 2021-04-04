@@ -14,7 +14,7 @@ store.initialData = window.__INITIAL_DATA__;
 store.userData = window.__USER_DATA__;
 
 const element = <Router><Page /></Router>;
-ReactDOM.render(element, document.getElementById("content"));
+ReactDOM.hydrate(element, document.getElementById("content"));
 
 if (module.hot) {
   module.hot.accept();
