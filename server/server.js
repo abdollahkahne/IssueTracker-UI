@@ -59,6 +59,9 @@ app.get("*", (req, res, next) => { render(req, res, next); });
 //   res.sendFile(path.resolve("public/index.html"));
 // });
 
+// Erro in Routing
+app.use((req, res) => { res.render("Error in Routing!"); });
+
 // setting App variable port from env variable
 app.set("port", process.env.PORT || 8000);
 app.listen(app.get("port"), () => {
