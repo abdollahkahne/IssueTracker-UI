@@ -96,11 +96,11 @@ class Page extends React.Component {
     return (
       <>
         <Headers user={user} onChangeUser={this.onChangeUser} />
-        <Container fluid>
+        {/* <Container fluid> */}
           <UserContext.Provider value={user}>
             <Contents />
           </UserContext.Provider>
-        </Container>
+        {/* </Container> */}
         <Footer />
       </>
     );
