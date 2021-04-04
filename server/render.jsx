@@ -34,7 +34,7 @@ export default async function render(req, res) {
   const contentElement = (
     <StaticRouter location={req.url} context={staticRouterContext}>
       <Switch>
-        <Redirect from="/test" to="/issues" />
+        <Redirect exact from="/" to="/issues" />
         <Page />
       </Switch>
     </StaticRouter>
