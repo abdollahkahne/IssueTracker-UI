@@ -52,6 +52,9 @@ app.get("/env.js", (req, res) => {
 
 app.get("/*", (req, res) => { render(req, res); });
 
+// Redirect for Home Page (Apparantly React Static Router Context have a bug);
+app.get("/", (req, res) => { res.redirect(301, "/issues"); });
+
 // // Client Side Rendering
 // app.get("/*", (req, res) => {
 //   res.sendFile(path.resolve("public/index.html"));
